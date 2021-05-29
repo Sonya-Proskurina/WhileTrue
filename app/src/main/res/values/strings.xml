@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">WhileTrue</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_star">Рейтинг</string>
+    <string name="title_main">Поиск</string>
+    <string name="title_men">Профиль</string>
+    <string name="mapbox_access_token">pk.eyJ1Ijoic29ucDIwMDEiLCJhIjoiY2ttbTMyN3NiMGNleDJ2bXpldndwcTdoYyJ9.2AeD7GyyIlf0O6vz87_VGA</string>
 </resources>
