@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WhileTrue">
-        <activity android:name=".ui.home.BlackActivity"></activity>
+        <activity android:name=".ui.profil.RegistrationActivity"></activity>
+        <activity android:name=".ui.profil.FavoritesActivity" />
+        <activity android:name=".ui.home.BlackActivity" />
         <activity android:name=".ui.home.WhiteActivity" />
         <activity android:name=".ui.home.BigTopIndActivity" />
         <activity
