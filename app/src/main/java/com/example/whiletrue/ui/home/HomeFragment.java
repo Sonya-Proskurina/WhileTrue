@@ -1,6 +1,7 @@
 package com.example.whiletrue.ui.home;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,9 +17,14 @@ import com.example.whiletrue.R;
 import com.example.whiletrue.ui.home.adapter.AdapterTop;
 import com.example.whiletrue.ui.home.model.TopModel;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
+import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +34,7 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerView;
     List<TopModel> list;
     Button whiteButton, blackButton;
+    PieChart pieChart;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -44,9 +51,6 @@ public class HomeFragment extends Fragment {
         AdapterTop adapter = new AdapterTop(list,getActivity());
         recyclerView.setAdapter(adapter);
 
-        chart=root.findViewById(R.id.chart);
-        setData(5,50);
-
         whiteButton=root.findViewById(R.id.white);
         whiteButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,24 +66,39 @@ public class HomeFragment extends Fragment {
                 startActivity(new Intent(getActivity(),BlackActivity.class));
             }
         });
+
+        pieChart = (PieChart) root.findViewById(R.id.chart);
+        pieChart.setUsePercentValues(true);
+        pieChart.getDescription().setEnabled(false);
+        pieChart.setExtraOffsets(5,10,5,5);
+        pieChart.setDragDecelerationFrictionCoef(0.95f);
+        pieChart.setDrawHoleEnabled(true);
+        pieChart.setHoleColor(R.color.dark);
+        pieChart.setCenterTextColor(Color.WHITE);
+        pieChart.setEntryLabelColor(Color.WHITE);
+        pieChart.setTransparentCircleRadius(61f);
+        pieChart.getLegend().setTextColor(Color.WHITE);
+
+        ArrayList<PieEntry> yValues = new ArrayList<>();
+
+        yValues.add(new PieEntry(30f, "Металл"));
+        yValues.add(new PieEntry(20f, "Батарейки"));
+        yValues.add(new PieEntry(40f, "Пластик"));
+        yValues.add(new PieEntry(40f, "Бумага"));
+        yValues.add(new PieEntry(30f, "Стекло"));
+
+
+        PieDataSet dataSet = new PieDataSet(yValues, "");
+        dataSet.setSliceSpace(2f);
+        dataSet.setSelectionShift(5f);
+        dataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+
+        PieData data = new PieData(dataSet);
+        data.setValueTextColor(Color.WHITE);
+        data.setValueTextSize(10f);
+
+        pieChart.setData(data);
+
         return root;
-    }
-
-    private void setData(int count, int range){
-        ArrayList<BarEntry> list=new ArrayList<>();
-        float binW= 2f, spaceForBar=10f;
-
-        for (int i = 0; i <count; i++) {
-            float val=(float) Math.random()*range;
-            list.add(new BarEntry(i*spaceForBar,val));
-        }
-
-        BarDataSet set;
-        set=new BarDataSet(list,"Data set");
-
-        BarData data=new BarData(set);
-        data.setBarWidth(binW);
-
-        chart.setData(data);
     }
 }

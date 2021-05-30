@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -32,6 +33,14 @@ public class ProfilFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), FavoritesActivity.class));
+            }
+        });
+
+        TextView textView=root.findViewById(R.id.reg);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), LoginActivity.class));
             }
         });
         return root;

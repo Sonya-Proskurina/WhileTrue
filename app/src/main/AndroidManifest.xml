@@ -3,6 +3,7 @@
     package="com.example.whiletrue">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WhileTrue">
-        <activity android:name=".ui.profil.RegistrationActivity"></activity>
+        <activity android:name=".ui.profil.RegistrationActivity" />
+        <activity android:name=".ui.profil.LoginActivity" />
         <activity android:name=".ui.profil.FavoritesActivity" />
         <activity android:name=".ui.home.BlackActivity" />
         <activity android:name=".ui.home.WhiteActivity" />

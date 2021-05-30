@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/root"
+    tools:context=".ui.profil.LoginActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="32dp"
+        android:text="Вход и регистрация"
+        android:textColor="@color/dark"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@drawable/ic_reg" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Введите почту"
+        android:textColor="@color/gray"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:inputType="textEmailAddress"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Введите пароль"
+        android:textColor="@color/gray"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:inputType="textPassword"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="10dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:onClick="signIn"
+        android:id="@+id/izb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="64dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/dark"
+        android:text="Войти"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="У вас еще нет акаунта? "
+        android:textColor="@color/gray"
+        android:textSize="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:onClick="regClick"
+        android:text="Зарегистрируйтесь"
+        android:textColor="@color/dark"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+</LinearLayout>
